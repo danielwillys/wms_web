@@ -1,0 +1,3 @@
+from exportador import exportar_relatorio_excel
+
+exportar_relatorio_excel()

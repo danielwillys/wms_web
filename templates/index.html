@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conferência WMS</title>
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <h1>Leitura de Código de Barras</h1>
+
+    <!-- Formulário de leitura -->
+    <form id="form-leitura" action="/registrar_codigo" method="post">
+        <input type="text" name="codigo" id="campo-codigo" autofocus placeholder="Escaneie o código" required>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <!-- Lista de pedidos -->
+    <h2>📦 Lista de pedidos</h2>
+    <ul>
+        {% for codigo, descricao in pedidos.items() %}
+            <li>{{ codigo }} → {{ descricao }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Botão para limpar leituras -->
+    <form action="/limpar_leituras" method="get" style="margin-top: 20px;">
+        <button type="submit" style="background-color: red; color: white;">
+            🧹 Limpar Leituras
+        </button>
+    </form>
+
+    <!-- Histórico dos últimos códigos lidos -->
+    <h2>📋 Últimos códigos lidos</h2>
+    <ul>
+        {% for codigo, descricao in historico %}
+            <li>
+                {{ codigo }} →
+                {% if descricao %}
+                    {{ descricao }}
+                {% else %}
+                    <span style="color: red;">Código não reconhecido</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Envio automático ao pressionar Enter -->
+    <script>
+    document.getElementById("campo-codigo").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("form-leitura").submit();
+        }
+    });
+    </script>
+</body>
+</html>

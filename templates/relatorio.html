@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relatório de Conferência</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Relatório de Conferência</h1>
+
+    <div class="corretos">
+        <h2>✅ Itens Corretos</h2>
+        <ul>
+            {% for codigo in corretos %}
+                <li>{{ codigo }} - {{ pedidos.get(codigo, 'Descrição não encontrada') }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="extras">
+        <h2>❌ Itens Extras</h2>
+        <ul>
+            {% for codigo in extras %}
+                <li>{{ codigo }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="faltantes">
+        <h2>🔴 Itens Faltantes</h2>
+        <ul>
+            {% for codigo in faltantes %}
+                <li>{{ codigo }} - {{ pedidos.get(codigo, 'Descrição não encontrada') }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- 📝 Formulário para turno e operador -->
+    <form action="/baixar_excel" method="get">
+        <label for="turno">Turno:</label>
+        <select name="turno" id="turno">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <label for="operador">Operador:</label>
+        <input type="text" name="operador" id="operador" placeholder="Nome do operador" required>
+
+        <button type="submit">📥 Baixar Relatório Excel</button>
+    </form>
+
+    <br><br>
+    <a href="/">Voltar</a>
+</body>
+</html>
