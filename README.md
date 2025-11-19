@@ -42,14 +42,14 @@ http://127.0.0.1:8000
 
 
 🖼️ Capturas de Tela
-📥 Tela de registro de códigos (assets/imagem1.png)
-Mostra os últimos códigos escaneados e os pedidos disponíveis.
+📥 Tela de registro de códigos 
+![Mostra os últimos códigos escaneados e os pedidos disponíveis](assets/imagem1.png)
 
-📊 Tela de relatório (assets/imagem2.png)
-Exibe os itens corretos, extras e faltantes com base nas leituras.
+📊 Tela de relatório 
+![Exibe os itens corretos, extras e faltantes com base nas leituras](assets/imagem2.png)
 
-📤 Exportação Excel (assets/imagem3.png)
-Botão para baixar o relatório em planilha.
+📤 Exportação Excel 
+![Botão para baixar o relatório em planilha](assets/imagem3.png)
 
 📌 Funcionalidades
 - Registro de códigos escaneados
